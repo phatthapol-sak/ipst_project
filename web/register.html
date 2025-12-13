@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title>
+	<link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Register</h1>
+		<form id="register-form">
+			<div class="input-box">
+				<input type="email" name="email" id="email" placeholder="Email" required>
+				<i class='bx bx-envelope'></i>
+			</div>
+			<button type="submit" class="btn">Send Confirmation Email</button>
+		</form>
+		<div class="register-link">
+			<p>Already have an account? <a href="login.php">Login</a></p>
+		</div>
+	</div>
+
+	<div class="message-box" id="message-box">
+		<p id="message-content"></p>
+		<button id="close-button">Close</button>
+	</div>
+
+	<script>
+		document.getElementById('register-form').addEventListener('submit', function(e) {
+			e.preventDefault();
+			var email = document.getElementById('email').value;
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'send_confirmation.php', true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.onload = function() {
+				console.log('XHR loaded'); // ตรวจสอบว่า XHR ถูกเรียกใช้งาน
+				var messageBox = document.getElementById('message-box');
+				var messageContent = document.getElementById('message-content');
+				if (xhr.status === 200) {
+					console.log(xhr.responseText); // ตรวจสอบ response ที่ได้รับ
+					var response = JSON.parse(xhr.responseText);
+					messageContent.innerText = response.message;
+					messageBox.style.display = 'block';
+					if (response.success) {
+						document.getElementById('close-button').onclick = function() {
+							window.location.href = 'main.php'; // ไปหน้าหลักถ้าสำเร็จ
+						};
+					} else {
+						document.getElementById('close-button').onclick = function() {
+							messageBox.style.display = 'none'; // ปิดกล่องถ้าไม่สำเร็จ
+						};
+					}
+				} else {
+					messageContent.innerText = 'An error occurred. Please try again.';
+					messageBox.style.display = 'block';
+					document.getElementById('close-button').onclick = function() {
+						messageBox.style.display = 'none'; // ปิดกล่องถ้าเกิดข้อผิดพลาด
+					};
+				}
+			};
+			xhr.send('email=' + encodeURIComponent(email));
+		});
+	</script>
+</body>
+</html>

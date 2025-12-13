@@ -1,0 +1,319 @@
+/* CSS หลัก */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    font-family: "Lucida Sans Unicode";
+}
+
+body {
+    background-image: url("image/background2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.nav-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    list-style: none;
+    margin-left: 1rem;
+    position: relative;
+}
+
+.auth-box {
+    list-style: none;
+    margin-right: 2.5rem;
+}
+
+.nav-con a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo a {
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.nav-login-btn, .nav-signup-btn {
+    display: inline-block;
+    padding: 0 1rem;
+    background-color: #723bcf;
+    border: 0px;
+    border-radius: 25px;
+    color: #cccccc;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-login-btn:hover, .nav-signup-btn:hover {
+    background-color: #5e31a6;
+}
+
+.nav-user {
+    color: red;
+    padding: 0 1rem;
+    line-height: 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-user .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.nav-user .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-user .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    margin-top: 100px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    background-color: white;
+    margin: 10px auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%; /* Adjust the width as needed */
+    max-width: 600px; /* Set a max width to ensure it doesn't get too wide */
+}
+
+.input-box label {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: nowrap; /* By default, do not wrap */
+}
+
+.button-group input[type="radio"] {
+    display: none;
+}
+
+.button-group label {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin: 5px; /* Adjust margin to allow spacing */
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    flex: 1 1 auto; /* Allow labels to grow and shrink */
+    max-width: 20%; /* Ensure labels don't exceed 20% width */
+    white-space: normal; /* Allow text to wrap */
+}
+
+.button-group input[type="radio"]:checked + label {
+    background-color: #9575CD;
+    color: white;
+    border-color: #724BB7;
+}
+
+.button-group input[type="radio"]:checked + label small {
+    color: white;
+}
+
+.button-group label:hover {
+    background-color: #ddd;
+}
+
+.start-button {
+    background-color: #9575CD;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto; /* Center align */
+    display: block;
+}
+
+.start-button:hover {
+    background-color: #724BB7;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-button {
+    background-color: #9575CD;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* เพิ่มขนาดฟอนต์เฉพาะส่วนของคำอธิบาย */
+.button-group label small {
+    display: inline;
+    font-size: 11px;
+    color: #555;
+    white-space: nowrap; /* Ensure text stays on one line */
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 800px) {
+    body {
+        overflow-y: auto;
+    }
+    .logo a {
+        font-size: 1.5rem;
+        line-height: normal; /* Ensure logo has the same height */
+    }
+    .nav-login-btn {
+        display: block;
+        margin: 0 auto;
+    }
+    .nav-signup-btn {
+        display: none;
+    }
+}
+
+/* Media query for small screens (phones) */
+@media (max-width: 480px) {
+    .input-box {
+        width: 90%; /* Adjust the width for smaller screens */
+        max-width: none; /* Remove the max width limit */
+    }
+
+    .button-group {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .button-group label {
+        width: 45%; /* Adjust the width to fit 2 labels per line */
+        margin-bottom: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-group label small {
+        display: block;
+        font-size: 11px;
+        color: #555;
+        white-space: nowrap; /* Ensure text stays on one line */
+        margin-top: 5px; /* Add margin for spacing */
+    }
+
+    .button-group label:nth-child(1),
+    .button-group label:nth-child(3) {
+        width: 45%; /* Set the width to match */
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
