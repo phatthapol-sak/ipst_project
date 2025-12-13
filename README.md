@@ -21,3 +21,4 @@ The **LSTM model** achieved the best performance, with:
 | F1-score | **0.63** | 
 | ROC-AUC | **\> 0.80** |
 
+## 📄 [Report.pdf](https://github.com/user-attachments/files/24140724/bd_eng_comp1-report.pdf)
